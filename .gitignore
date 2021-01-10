@@ -1,3 +1,8 @@
 node_modules
 .vscode
 yarn.lock
+buid/
+temp/
+tmp/*
+!tmp/.gitkeep
+
