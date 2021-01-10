@@ -34,7 +34,18 @@
       "camelcase": "off",
       "@typescript-eslint/no-unused-vars": ["error", {
         "argsIgnorePatter": "_"
-      }]
+      }],
+      "@typescript-eslint/naming-convention": [
+        "error",
+        {
+          "selector": "interface",
+          "format": ["PascalCase"],
+          "custom": {
+            "regex": "^I[A-Z]",
+            "match": true
+          }
+        }
+      ]
     },
     "settings": {
       "import/resolver": {
