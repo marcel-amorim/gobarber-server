@@ -1,9 +1,9 @@
 import ICreateUserDTO from '../dtos/ICreateUserDTO';
-import IUser from '../entities/IUser';
+import User from '../entities/User';
 
 export default interface IUsersRepository {
-  findById(id: string): Promise<IUser | undefined>;
-  findByEmail(email: string): Promise<IUser | undefined>;
-  create(data: ICreateUserDTO): Promise<IUser>;
-  update(user: IUser): Promise<IUser>;
+  findById(id: string): Promise<User | undefined>;
+  findByEmail(email: string): Promise<User | undefined>;
+  create(data: ICreateUserDTO): Promise<User>;
+  update(user: User): Promise<User>;
 }

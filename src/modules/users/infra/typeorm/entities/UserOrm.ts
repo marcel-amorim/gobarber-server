@@ -6,10 +6,10 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-import IUser from '@modules/users/entities/IUser';
+import User from '@modules/users/entities/User';
 
 @Entity('users')
-class User implements IUser {
+class UserOrm extends User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -32,4 +32,4 @@ class User implements IUser {
   updated_at: Date;
 }
 
-export default User;
+export default UserOrm;

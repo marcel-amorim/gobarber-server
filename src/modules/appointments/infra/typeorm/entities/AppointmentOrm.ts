@@ -8,20 +8,20 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-import User from '@modules/users/infra/typeorm/entities/User';
-import IAppointments from '@modules/appointments/entities/IAppointment';
+import UserOrm from '@modules/users/infra/typeorm/entities/UserOrm';
+import Appointments from '@modules/appointments/entities/Appointment';
 
 @Entity('appointments')
-class Appointment implements IAppointments {
+class AppointmentOrm extends Appointments {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
   provider_id: string;
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => UserOrm)
   @JoinColumn({ name: 'provider_id' })
-  provider: User;
+  provider: UserOrm;
 
   @Column('timestamp with time zone')
   date: Date;
@@ -33,4 +33,4 @@ class Appointment implements IAppointments {
   updated_at: Date;
 }
 
-export default Appointment;
+export default AppointmentOrm;

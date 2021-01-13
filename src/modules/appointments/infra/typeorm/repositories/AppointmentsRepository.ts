@@ -1,13 +1,14 @@
 import { getRepository, Repository } from 'typeorm';
-import Appointment from '@modules/appointments/infra/typeorm/entities/Appointment';
+import Appointment from '@modules/appointments/entities/Appointment';
+import AppointmentOrm from '@modules/appointments/infra/typeorm/entities/AppointmentOrm';
 import IAppointmentsRepository from '@modules/appointments/repositories/IAppointmentsRepository';
 import iCreateAppointmentDTO from '@modules/appointments/dtos/iCreateAppointmentDTO';
 
 class AppointmentsRepository implements IAppointmentsRepository {
-  private ormRepository: Repository<Appointment>;
+  private ormRepository: Repository<AppointmentOrm>;
 
   constructor() {
-    this.ormRepository = getRepository(Appointment);
+    this.ormRepository = getRepository(AppointmentOrm);
   }
 
   public async create({

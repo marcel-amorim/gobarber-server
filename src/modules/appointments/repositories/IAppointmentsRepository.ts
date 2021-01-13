@@ -1,7 +1,7 @@
 import ICreateAppointmentDTO from '../dtos/iCreateAppointmentDTO';
-import IAppointment from '../entities/IAppointment';
+import Appointment from '../entities/Appointment';
 
 export default interface IAppointmentsRepository {
-  create(data: ICreateAppointmentDTO): Promise<IAppointment>;
-  findByDate(date: Date): Promise<IAppointment | undefined>;
+  create(data: ICreateAppointmentDTO): Promise<Appointment>;
+  findByDate(date: Date): Promise<Appointment | undefined>;
 }
