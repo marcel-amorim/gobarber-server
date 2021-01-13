@@ -1,10 +1,9 @@
-import { getRepository } from 'typeorm';
 import { hash } from 'bcryptjs';
 import { inject, injectable } from 'tsyringe';
 
 import AppError from '@shared/errors/AppError';
 import IUsersRepository from '../repositories/IUsersRepositories';
-import IUser from '../entities/IUser';
+import User from '../entities/User';
 
 interface Request {
   name: string;
@@ -19,7 +18,7 @@ class CreateUserService {
     private usersRepository: IUsersRepository,
   ) {}
 
-  public async execute({ name, email, password }: Request): Promise<IUser> {
+  public async execute({ name, email, password }: Request): Promise<User> {
     const checkUserExists = await this.usersRepository.findByEmail(email);
 
     if (checkUserExists) {
